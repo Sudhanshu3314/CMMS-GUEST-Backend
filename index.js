@@ -12,18 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // Enable CORS for frontend
-app.use(
-    cors({
-        origin: true, // reflect request origin
-        credentials: true,
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-        allowedHeaders: ["Content-Type", "Authorization"],
-    })
-);
-
-// REQUIRED for preflight
-app.options("*", cors());
-
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 // Debug logs for requests
