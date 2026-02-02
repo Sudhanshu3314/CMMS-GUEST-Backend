@@ -48,19 +48,22 @@ router.post("/", authMiddleware, async (req, res) => {
     }
 });
 
-// Admin: get all lunch reports
+// Public: get all lunch reports (no auth)
 router.get("/report", async (req, res) => {
-    const { admin, date } = req.query;
-    if (admin !== "true") return res.status(403).json({ success: false, message: "Unauthorized" });
-
+    const { date } = req.query;
     const query = date ? { date } : {};
+
     try {
-        const report = await GuestLunch.find(query).sort({ date: -1 }).lean();
+        const report = await GuestLunch.find(query)
+            .sort({ date: -1 })
+            .lean();
+
         res.json(report);
     } catch (err) {
         console.error("GET /lunch/report error:", err);
         res.status(500).json({ success: false, message: "Server error" });
     }
 });
+
 
 module.exports = router;
