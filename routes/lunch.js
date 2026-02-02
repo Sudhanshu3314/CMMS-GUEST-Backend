@@ -49,7 +49,7 @@ router.post("/", authMiddleware, async (req, res) => {
 });
 
 // Admin: get all lunch reports
-router.get("/report", authMiddleware, async (req, res) => {
+router.get("/report", async (req, res) => {
     const { admin, date } = req.query;
     if (admin !== "true") return res.status(403).json({ success: false, message: "Unauthorized" });
 

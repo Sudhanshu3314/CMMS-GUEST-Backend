@@ -84,7 +84,7 @@ router.post("/", authMiddleware, async (req, res) => {
  * ADMIN: Dinner report (all users)
  * ============================
  */
-router.get("/report", authMiddleware, async (req, res) => {
+router.get("/report", async (req, res) => {
     if (req.user.role !== "admin") {
         return res.status(403).json({
             success: false,
