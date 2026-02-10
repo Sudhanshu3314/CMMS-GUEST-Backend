@@ -14,7 +14,7 @@ RUN npm install --production
 COPY . .
 
 # 6️⃣ Expose your backend port
-EXPOSE 8080
+EXPOSE 8065
 
 # 7️⃣ Define environment
 ENV NODE_ENV=production

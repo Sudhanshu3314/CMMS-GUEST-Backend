@@ -9,7 +9,7 @@ const lunchRoutes = require("./routes/lunch");
 const dinnerRoutes = require("./routes/dinner");
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8065;
 
 // Enable CORS for frontend
 app.use(cors({ origin: true, credentials: true }));
